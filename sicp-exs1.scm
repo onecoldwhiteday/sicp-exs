@@ -41,6 +41,31 @@
 (- 2 -1)
 3
 
-; Excercise 1.6
+; Excercise 1.7
 
+(define (square x) (* x x))
+
+(define (abs x)
+  (cond ((> x 0) x)
+        ((< x 0) ( - x))
+        ((= x 0) 0)))
+
+(define (average x y) 
+  (/ (+ x y) 2))
+
+(define (good-enough? guess x)
+  (= guess (improve guess x)))
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (sqrt-iter guess x)
+  (if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x) x)))
+
+(define (sqrt x)
+  (sqrt-iter x/2 x))
+
+; Exercise 1.8
 
